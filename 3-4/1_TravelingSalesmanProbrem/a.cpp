@@ -12,10 +12,12 @@ vector<vector<int>> dp; // [1<<n][n]
 
 // すでに訪れた頂点集合S, 現在位置v
 int rec(int S, int v) {
-    if (dp[S][v] >= 0) {
+    if (dp[S][v] != -1) {
+        // 探索済みならそのまま返す
         return dp[S][v];
     }
     if (S == (1 << n) - 1 && v == 0) {
+        // 終端条件
         // すべての頂点を訪れて戻った
         return dp[S][v] = 0;
     }
